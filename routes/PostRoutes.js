@@ -1,5 +1,5 @@
 import express from 'express'
-import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js';
+import { requireSignIn } from '../middlewares/authMiddleware.js';
 import { createPostController, deletePostController, getPostController, getSinglePostController, postCategoryController, postPhotoController } from '../controllers/postController.js';
 
 import formidable from 'express-formidable';
@@ -7,7 +7,7 @@ import formidable from 'express-formidable';
 const router = express.Router()
 
 //routes
-router.post('/create-post',requireSignIn,isAdmin,formidable(),createPostController)
+router.post('/create-post',formidable(),createPostController)
 
 
 //get post
