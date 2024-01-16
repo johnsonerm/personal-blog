@@ -6,14 +6,14 @@ const router = express.Router()
 
 //routing
 //REGISTER || POST METHOD
-router.post('/register',registerController)
+
 
 //LOGIN || POST METHOD
-router.post('/login', loginController)
+
 
 
 //test route
-router.get('/test', requireSignIn , isAdmin , testController)
+router.get('/test' , testController)
 
 
 //user route
@@ -24,7 +24,7 @@ router.get('/user-auth', requireSignIn , (req,res)=>{
 
 //Auth route
 
-router.get('/admin-auth', requireSignIn , isAdmin , (req,res)=>{
+router.get('/admin-auth', (req,res)=>{
     res.status(200).send({ ok: true })
 })
 
